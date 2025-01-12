@@ -16,7 +16,7 @@ Let’s break it down with an example:
 function createCounter() {
   let count = 0; // Enclosing variable
 
-  return function() {
+  return function () {
     count += 1; // Inner function accessing the outer variable
     return count;
   };
@@ -26,44 +26,48 @@ const counter = createCounter();
 console.log(counter()); // 1
 console.log(counter()); // 2
 console.log(counter()); // 3
+```
 
 Here’s what’s happening:
-	•	The createCounter function defines a local variable count.
-	•	The returned function (closure) retains access to the count variable even after createCounter has finished executing.
+• The createCounter function defines a local variable count.
+• The returned function (closure) retains access to the count variable even after createCounter has finished executing.
 
 Where Are Closures Useful?
-1.	Data Encapsulation
-Closures can create private variables:
 
+1. Data Encapsulation
+   Closures can create private variables:
+
+```
 function Person(name) {
-  return {
-    getName: () => name,
-  };
+return {
+getName: () => name,
+};
 }
+```
 
 const person = Person("Alice");
 console.log(person.getName()); // Alice
 
+2. Event Handlers
+   Closures retain references to variables when handling events:
 
-2.	Event Handlers
-Closures retain references to variables when handling events:
-
+```
 function registerHandler(buttonId) {
-  let clicks = 0;
-  document.getElementById(buttonId).addEventListener("click", () => {
-    clicks++;
-    console.log(`Button clicked ${clicks} times`);
-  });
+let clicks = 0;
+document.getElementById(buttonId).addEventListener("click", () => {
+clicks++;
+console.log(`Button clicked ${clicks} times`);
+});
 }
+```
 
+3. Currying
+   Closures are essential for creating curried functions:
 
-3.	Currying
-Closures are essential for creating curried functions:
-
+```
 const add = (a) => (b) => a + b;
 console.log(add(5)(10)); // 15
-
-
+```
 
 Conclusion
 
@@ -72,7 +76,3 @@ Closures may seem tricky at first, but once you understand them, they become an 
 Have you mastered closures yet?
 
 Share your favorite use cases or challenges with closures in the comments below!
-
----
-
-```

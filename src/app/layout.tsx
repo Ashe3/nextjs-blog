@@ -1,9 +1,16 @@
 import { ReactNode } from 'react';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+
 import './globals.css';
 
 export const RootLayout = ({ children }: { children: ReactNode }) => (
   <html>
-    <body>{children}</body>
+    <body>
+      <Header />
+      {children}
+      <Footer />
+    </body>
   </html>
 );
 

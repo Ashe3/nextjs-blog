@@ -42,3 +42,6 @@ next-env.d.ts
 
 posts/*
 !posts/.gitkeeper
+
+/public/sitemap*.xml
+/public/robots.txt

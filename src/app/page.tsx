@@ -16,7 +16,7 @@ export const generateMetadata = () => ({
 const Page = async ({ searchParams }: Props) => {
   const { page } = await searchParams;
   const currentPage = parseInt(page || '1', 10);
-  const allPosts = getAllPosts();
+  const allPosts = await getAllPosts();
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   const posts = allPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,

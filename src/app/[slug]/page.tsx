@@ -5,9 +5,9 @@ import { getAllPosts, getPostBySlug } from '@/utils/posts';
 import { notFound } from 'next/navigation';
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export const generateStaticParams = () => {

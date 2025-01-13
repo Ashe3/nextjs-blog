@@ -5,7 +5,7 @@ import { getAllPosts } from '@/utils/posts';
 const POSTS_PER_PAGE = 6;
 
 interface Props {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 }
 
 export const generateMetadata = () => ({
@@ -13,7 +13,7 @@ export const generateMetadata = () => ({
   description: 'Welcome to my blog where I share amazing posts!',
 });
 
-export const Page = async ({ searchParams }: Props) => {
+const Page = async ({ searchParams }: Props) => {
   const { page } = await searchParams;
   const currentPage = parseInt(page || '1', 10);
   const allPosts = getAllPosts();

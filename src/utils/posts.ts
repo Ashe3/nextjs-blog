@@ -12,7 +12,7 @@ export type Post = {
   slug: string;
 } & PostData;
 
-const postsDirectory = path.join(process.cwd(), 'src', 'posts');
+const postsDirectory = path.join(process.cwd(), 'posts');
 
 export const getAllPosts = (): Post[] => {
   const filenames = fs.readdirSync(postsDirectory);

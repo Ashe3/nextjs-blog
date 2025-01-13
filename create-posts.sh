@@ -25,7 +25,7 @@ posts=(
 
 for post in "${posts[@]}"; do
     IFS="|" read -r filename title description date <<< "$post"
-    cat <<EOF > src/posts/$filename
+    cat <<EOF > posts/$filename
 ---
 title: "$title"
 description: "$description"

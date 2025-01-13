@@ -4,6 +4,11 @@ import { getAllPosts } from '@/utils/posts';
 
 const POSTS_PER_PAGE = 6;
 
+export const generateMetadata = () => ({
+  title: 'My Awesome Blog',
+  description: 'Welcome to my blog where I share amazing posts!',
+});
+
 export const Page = ({ searchParams }: { searchParams: { page?: string } }) => {
   const currentPage = parseInt(searchParams.page || '1', 10);
   const allPosts = getAllPosts();

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const headerLinks = [
   { label: 'Home', href: '/' },
@@ -8,7 +9,7 @@ const headerLinks = [
 
 const Header = () => (
   <header className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6">
-    <nav className="flex justify-between items-center mx-24">
+    <nav className="flex justify-between items-center mx-2 lg:mx-24">
       <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-200">
         My Blog
       </h1>
@@ -25,6 +26,7 @@ const Header = () => (
         ))}
       </ul>
     </nav>
+    <ThemeSwitcher />
   </header>
 );
 

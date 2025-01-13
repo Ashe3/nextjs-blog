@@ -15,7 +15,9 @@ export type Post = {
 const postsDirectory = path.join(process.cwd(), 'posts');
 
 export const getAllPosts = (): Post[] => {
-  const filenames = fs.readdirSync(postsDirectory);
+  const filenames = fs
+    .readdirSync(postsDirectory)
+    .filter((filename) => !filename.startsWith('.'));
 
   return filenames.map((filename) => {
     const filePath = path.join(postsDirectory, filename);

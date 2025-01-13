@@ -18,8 +18,9 @@ export const generateStaticParams = () => {
   }));
 };
 
-export const generateMetadata = ({ params }: Props) => {
-  const post = getPostBySlug(params.slug);
+export const generateMetadata = async ({ params }: Props) => {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -35,8 +36,9 @@ export const generateMetadata = ({ params }: Props) => {
   };
 };
 
-const Page = ({ params }: Props) => {
-  const post = getPostBySlug(params.slug);
+const Page = async ({ params }: Props) => {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) return notFound();
 

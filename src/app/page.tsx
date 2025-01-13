@@ -4,13 +4,18 @@ import { getAllPosts } from '@/utils/posts';
 
 const POSTS_PER_PAGE = 6;
 
+interface Props {
+  searchParams: { page?: string };
+}
+
 export const generateMetadata = () => ({
   title: 'My Awesome Blog',
   description: 'Welcome to my blog where I share amazing posts!',
 });
 
-export const Page = ({ searchParams }: { searchParams: { page?: string } }) => {
-  const currentPage = parseInt(searchParams.page || '1', 10);
+export const Page = async ({ searchParams }: Props) => {
+  const { page } = await searchParams;
+  const currentPage = parseInt(page || '1', 10);
   const allPosts = getAllPosts();
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   const posts = allPosts.slice(
